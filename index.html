@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Айдана, менімен кездесуге барасың ба?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card" id="main-card">
+        <div class="character-container">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z0Nnd4N3R6M3R2M3R2M3R2M3R2M3R2M3R2M3R2JnBzPW铺/l41Yc2yK6DrcNIs7q/giphy.gif" alt="Сүйкімді кейіпкер" id="char-img">
+        </div>
+
+        <div id="question-container">
+            <h2 id="question-text">Айдана, менімен кездесуге барасың ба?</h2>
+            
+            <div id="stage-1" class="btn-group">
+                <button class="btn btn-yes" onclick="nextStage(2)">Иә! 💖</button>
+                <button class="btn btn-no" id="no-btn">Жоқ(</button>
+            </div>
+
+            <div id="stage-2" class="options-grid hidden">
+                <div class="option-card" onclick="selectFood('Суши 🍣')">Суши 🍣</div>
+                <div class="option-card" onclick="selectFood('Итальяндық 🍕')">Итальяндық 🍕</div>
+                <div class="option-card" onclick="selectFood('Ет 🥩')">Ет 🥩</div>
+                <div class="option-card" onclick="selectFood('Десерттер 🧁')">Десерттер 🧁</div>
+            </div>
+
+            <div id="stage-3" class="options-list hidden">
+                <button class="btn btn-opt" onclick="selectTransport('Комфорт+ такси 🚖')">Комфорт+ шақырасың 🚖</button>
+                <button class="btn btn-opt" onclick="selectTransport('Өзің алып кетесің 🚗')">Өзің алып кетесің 🚗</button>
+                <button class="btn btn-opt" onclick="selectTransport('Қол ұстасып жаяу жүреміз 🧑‍🤝‍🧑')">Қол ұстасып жаяу жүреміз 🧑‍🤝‍🧑</button>
+            </div>
+
+            <div id="stage-4" class="options-list hidden">
+                <button class="btn btn-opt" onclick="selectPay('Нәә, мен... 🥺')">Нәә, мен... 🥺</button>
+                <button class="btn btn-opt" onclick="selectPay('Әрине сен, өзің шақырдың ғой! 😜')">Әрине сен, өзің шақырдың ғой! 😜</button>
+            </div>
+
+            <div id="stage-5" class="hidden">
+                <p id="slider-val">0%</p>
+                <input type="range" id="love-slider" min="0" max="100" value="0" oninput="updateSlider(this.value)">
+                <br><br>
+                <button class="btn btn-yes" id="final-btn" onclick="showResult()" disabled>Қорытындылау! ✨</button>
+            </div>
+
+            <div id="stage-result" class="hidden">
+                <h2 style="color: #ff4a7d;">Урааа! 🎉</h2>
+                <p>Кездесуді асыға күтемін, Айдана! Төменде біздің жоспар:</p>
+                <div class="plan-box">
+                    <p>🍕 <b>Тағам:</b> <span id="res-food"></span></p>
+                    <p>🚶‍♂️ <b>Жол:</b> <span id="res-trans"></span></p>
+                    <p>💳 <b>Төлем:</b> <span id="res-pay">Жәә, қалжың, өзім төлеймін) 🥰</span></p>
+                    <p>❤️ <b>Күту деңгейі:</b> <span id="res-love">100%</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
